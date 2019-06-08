@@ -1,0 +1,49 @@
+﻿@model IEnumerable<hw2.Models.Employees>
+@{
+    ViewBag.Title = "Index";
+}
+<div id="window" style="display:none">
+    <form id="serch_window">
+        <h3>查詢書籍</h3>
+        書名：<input id="products1" style="width: 80%;"><br><br>
+        圖書類別：<input id="products2" style="width: 80%;"><br><br>
+        借閱狀態：<input id="products3" style="width: 80%;"><br><br>
+        借閱人：<input id="products4" style="width: 80%;"><br><br>
+        <button type="button" class="k-button k-primary btn-add-book" id="save_book">查詢</button>
+    </form>
+    <form id="inser_window">
+        <h3>新增書籍</h3>
+        書名：<input id="a" class="k-textbox" required style="width: 220px;" /><br><br>
+        作者：<input id="b" class="k-textbox" required style="width: 220px;" /><br><br>
+        出版社：<input id="c" class="k-textbox" required style="width: 220px;" /><br><br>
+        內容簡介：<input id="d" class="k-textbox" required style="width: 220px;" /><br><br>
+        購買日期：<input id="e" class="k-textbox" required style="width: 220px;" /><br><br>
+        書籍分類：<input id="f" class="k-textbox" required style="width: 220px;" /><br><br>
+        <button type="button" class="k-button k-primary btn-add-book" id="inser_btn">新增</button>
+    </form>
+    <form id="update_window">
+        <h3>修改書籍</h3>
+        書名：<input id="a1" class="k-textbox" required style="width: 220px;" /><br><br>
+        作者：<input id="b1" class="k-textbox" required style="width: 220px;" /><br><br>
+        出版社：<input id="c1" class="k-textbox" required style="width: 220px;" /><br><br>
+        內容簡介：<input id="d1" class="k-textbox" required style="width: 220px;" /><br><br>
+        購買日期：<input id="e1" class="k-textbox" required style="width: 220px;" /><br><br>
+        書籍分類：<input id="f1" class="k-textbox" required style="width: 220px;" /><br><br>
+        書籍狀態：<input id="g1" class="k-textbox" required style="width: 220px;" /><br><br>
+        借閱人：<input id="h1" class="k-textbox" required style="width: 220px;" /><br><br>
+        <button type="button" class="k-button k-primary btn-add-book" id="update_btn">修改</button>
+    </form>
+</div>
+<br><span id="serch" class="k-button hide-on-narrow">查詢</span>
+<span id="inser" class="k-button hide-on-narrow">新增</span><br><br>
+<div id="book_grid"></div>
+<div style="display:none">
+    <ul id="list">
+        @{ var x = 1;}
+        @foreach (var item in (List<hw2.Models.Employees>)ViewBag.i)
+        {
+            <li id="@x">@item.BOOK_NAME|@item.BOOK_BOUGHT_DATE|@item.BOOK_CLASS_NAME|@item.CODE_NAME|@item.BOOK_KEEPER|@item.BOOK_ID</li>
+            x += 1;
+        }
+    </ul>
+</div>
